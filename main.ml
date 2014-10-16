@@ -59,9 +59,12 @@ let compress_stream stream =
                       r
               | Some [] -> assert false
               | None ->
-                  let r = Some (!prev_values) in
-                  let () = prev_values := [] in
-                  r in
+                  if n = 0
+                  then None
+                  else
+                    let r = Some (!prev_values) in
+                    let () = prev_values := [] in
+                    r in
             loop 0
       with Stream.Failure ->
         match !prev_values with
