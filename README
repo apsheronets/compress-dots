@@ -1,0 +1,13 @@
+Dead simple tool for removing useless repeating Y values from your chart data. Usable with gnuplot.
+
+Example:
+
+% cat example
+1 2
+2 2
+3 2
+4 3
+% ./compress-dots < example
+1 2
+3 2
+4 3
